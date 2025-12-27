@@ -239,7 +239,7 @@ demonstrates memory recall, confidence-based decision-making, and auditability.
   ]
 }
 ```
-###Invoice #2 — After Learning (Memory Reused)
+### Invoice #2 — After Learning (Memory Reused)
 ```json
 {
   "proposedCorrections": [
@@ -267,6 +267,7 @@ demonstrates memory recall, confidence-based decision-making, and auditability.
 * **UI Workflow**: A dedicated dashboard for human reviewers.
 
 * **LLM Reasoning**: Using Generative AI to explain why a memory was formed.
+
 
 
 
