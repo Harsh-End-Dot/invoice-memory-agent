@@ -89,7 +89,7 @@ The **Evaluator** validates invoices against external data (Purchase Orders/Deli
 ---
 ## 🏗️ System Architecture
 
-![Invoice Memory Agent Architecture](system architecture.png)
+![Invoice Memory Agent Architecture](system-architecture.png)
 ---
 ## 🔄 Engine Lifecycle (Step-by-Step)
 
@@ -230,5 +230,6 @@ The system guarantees a deterministic JSON output for every invoice:
 * **UI Workflow**: A dedicated dashboard for human reviewers.
 
 * **LLM Reasoning**: Using Generative AI to explain why a memory was formed.
+
 
 
