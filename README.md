@@ -207,21 +207,58 @@ npx ts-node --transpile-only src/demoRunner.ts
 
 * **Evaluator feedback loops**: Real-time confidence updates based on outcomes.
 ---
-## 📤 Output 
+## 🧪 Sample Demo Output (Excerpt)
 
-The system guarantees a deterministic JSON output for every invoice:
+The following excerpt is taken from a real execution of the demo runner and
+demonstrates memory recall, confidence-based decision-making, and auditability.
+
+### Invoice #1 — Cold Start (No Trusted Memory Yet)
 
 ```json
 {
-  "normalizedInvoice": {},
-  "proposedCorrections": [],
+  "proposedCorrections": [
+    {
+      "field": "serviceDate",
+      "from": null,
+      "to": "2024-01-01",
+      "confidence": 0.7
+    }
+  ],
   "requiresHumanReview": true,
-  "reasoning": "...",
-  "confidenceScore": 0.0,
-  "memoryUpdates": [],
-  "auditTrail": []
+  "confidenceScore": 0.7,
+  "reasoning": "The system identified memory-based suggestions but escalated the invoice for human review due to medium confidence.",
+  "auditTrail": [
+    {
+      "step": "recall",
+      "details": "Recalled memory patterns: Leistungsdatum -> serviceDate"
+    },
+    {
+      "step": "decide",
+      "details": "Human review required (avg confidence 0.70)"
+    }
+  ]
 }
 ```
+###Invoice #2 — After Learning (Memory Reused)
+```json
+{
+  "proposedCorrections": [
+    {
+      "field": "serviceDate",
+      "to": "2024-01-15",
+      "confidence": 0.7
+    }
+  ],
+  "requiresHumanReview": true,
+  "auditTrail": [
+    {
+      "step": "recall",
+      "details": "Recalled existing vendor memory: Leistungsdatum -> serviceDate"
+    }
+  ]
+}
+```
+---
 ## 🚀 Future Extensions
 * **Vector Similarity**: Using embeddings for fuzzy pattern matching.
 
@@ -230,6 +267,7 @@ The system guarantees a deterministic JSON output for every invoice:
 * **UI Workflow**: A dedicated dashboard for human reviewers.
 
 * **LLM Reasoning**: Using Generative AI to explain why a memory was formed.
+
 
 
 
